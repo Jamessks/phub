@@ -1,6 +1,5 @@
 FROM php:8.2-fpm
 
-# Install the PDO and PDO MySQL extensions
 RUN apt-get update && apt-get install -y \
     nano \
     libpng-dev \
@@ -12,23 +11,16 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql \
     && pecl install redis && docker-php-ext-enable redis
 
-# Set the working directory
 WORKDIR /var/www/phub
 
-# Copy the application files from the local machine to the container
 COPY . /var/www/phub
 
-# Copy the crontab file into the container
 COPY ./cron/cronfile /etc/cron.d/phub-cron
 
-# Give proper permissions to the crontab file
 RUN chmod 0644 /etc/cron.d/phub-cron
 
-# Apply the crontab
 RUN crontab /etc/cron.d/phub-cron
 
-# Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
-# Start both PHP-FPM and cron when the container starts
 CMD ["bash", "-c", "cron && php-fpm"]
