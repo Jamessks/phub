@@ -1,0 +1,2 @@
+SHELL=/bin/sh
+0 0 * * * /usr/local/bin/php /var/www/phub/cron/scripts/update_pornstars.php >> /var/log/cron.log 2>&1
