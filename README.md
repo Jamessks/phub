@@ -44,7 +44,7 @@ From within the PHP image -> EXEC run
 
 `php /var/www/phub/cron/scripts/update_pornstars.php`
 
-normally this script runs through a cron that has been setup to run at 00:00 midnight everyday but in case you do not want to wait, run the script manually! (access cron log file from /var/log/cron.log)
+normally this script runs through a cron that has been setup to run at 00:00 midnight everyday but in case you do not want to wait, run the script manually (access cron log file from /var/log/cron.log)
 
 The script hits the given JSON endpoint (or if it fails due to a 404 error for example, a fallback has been set to fetch data from a local JSON file instead. It is a copy of the online JSON file).
 
