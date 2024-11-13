@@ -42,7 +42,7 @@ to run available tests
 
 From within the PHP image -> EXEC run
 
-`php /var/www/phub/cron/scripts/update_pornstars.php`
+`php /var/www/phub/cron/scripts/update_***stars.php`
 
 normally this script runs through a cron that has been setup to run at 00:00 midnight everyday but in case you do not want to wait, run the script manually (access cron log file from /var/log/cron.log)
 
@@ -58,7 +58,7 @@ Profile pages are cached for 1-hour until expiration.
 
 To effectively reset the project to its initial state:
 
-1. Delete all records found in 'pornstars' table (the action will cascade to the rest of the tables through foreign key constraint).
+1. Delete all records found in '****stars' table (the action will cascade to the rest of the tables through foreign key constraint).
 
 2. From the `redis-1` docker image -> EXEC -> type: `redis-cli` -> type: `FLUSHDB`
 
